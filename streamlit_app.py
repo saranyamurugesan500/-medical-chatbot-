@@ -16,7 +16,9 @@ def load_model():
     return pipeline("text2text-generation", model="google/flan-t5-base"), None
 
 def generate_response(model, tokenizer, query):
+    # tokenizer is None - ignore it
     return model(f"medical advice: {query}", max_length=100)[0]['generated_text']
+
 
 model, tokenizer = load_model()
 
